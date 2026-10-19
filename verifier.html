@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vérifier une carte cadeau — Stahl</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0E0C0B">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0E0C0B;--ivory:#F3EDE4;--sand:#CFC0AC;--bronze:#B98F5E;--glow:#EBC096;--muted:#8C8073;--serif:"Instrument Serif",serif;--sans:"Manrope",system-ui,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;min-height:100svh;display:grid;place-items:center;background:var(--ink);color:var(--ivory);font-family:var(--sans);padding:24px}
+.box{width:100%;max-width:440px}
+.eyebrow{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);font-weight:600}
+h1{font-family:var(--serif);font-weight:400;font-size:2.6rem;line-height:1;margin:10px 0 26px}
+h1 em{color:var(--glow)}
+form{display:flex;gap:8px}
+input{flex:1;min-width:0;background:none;border:1px solid rgba(243,237,228,.3);border-radius:999px;color:var(--ivory);font:600 1.05rem var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:16px 20px;outline:0}
+input:focus{border-color:var(--glow)}
+button{border:0;border-radius:999px;background:var(--ivory);color:var(--ink);font:600 .78rem var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:0 22px;cursor:pointer}
+.res{margin-top:22px;padding:22px;border-radius:12px;border:1px solid rgba(243,237,228,.16);min-height:96px}
+.res b{display:block;font-family:var(--serif);font-weight:400;font-size:3rem;line-height:1}
+.res.ok{border-color:rgba(63,155,98,.6)}.res.ko{border-color:rgba(179,74,60,.7)}
+.res p{margin:8px 0 0;color:var(--sand);font-size:.9rem}
+.note{margin-top:18px;font-size:.78rem;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+<div class="box">
+  <p class="eyebrow">Espace institut</p>
+  <h1>Vérifier une <em>carte cadeau</em></h1>
+  <form id="f"><input id="code" placeholder="STAHL-XXXXX-XXXXX" autocomplete="off" autocapitalize="characters" spellcheck="false"><button type="submit">Vérifier</button></form>
+  <div class="res" id="res"><p>Saisissez le code inscrit sur la carte.</p></div>
+  <p class="note">Un code valide a été payé en ligne : son montant s'affiche. Cette page ne sait pas si la carte a déjà été utilisée : notez chaque carte encaissée dans le registre, à partir de l'e-mail de vente reçu.</p>
+</div>
+<script>
+document.getElementById('f').addEventListener('submit', async function(e){
+  e.preventDefault();
+  var res = document.getElementById('res'), code = document.getElementById('code').value.trim();
+  res.className = 'res'; res.innerHTML = '<p>Vérification…</p>';
+  try{
+    var r = await fetch('/api/verify?code=' + encodeURIComponent(code)); var j = await r.json();
+    if(j.valid){ res.className = 'res ok'; res.innerHTML = '<b>' + j.amount + ' €</b><p>Code authentique : ' + j.code + '</p>'; }
+    else { res.className = 'res ko'; res.innerHTML = '<b>Invalide</b><p>Ce code ne correspond à aucune carte vendue en ligne.</p>'; }
+  }catch(_){ res.className = 'res ko'; res.innerHTML = '<p>Vérification impossible pour le moment.</p>'; }
+});
+</script>
+</body>
+</html>

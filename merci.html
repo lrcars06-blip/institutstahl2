@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Merci — Beauté & Technologie Stahl</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0E0C0B">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0E0C0B;--ivory:#F3EDE4;--ivory-2:#E9E0D3;--sand:#CFC0AC;--bronze:#B98F5E;--glow:#EBC096;--muted:#8C8073;--serif:"Instrument Serif","Times New Roman",serif;--sans:"Manrope",system-ui,sans-serif;--ease:cubic-bezier(.76,0,.24,1);--ease-out:cubic-bezier(.16,1,.3,1);--pad:clamp(20px,4vw,64px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--ivory);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100svh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+h1,h2,p{margin:0}
+.eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:22px var(--pad)}
+.nav__logo{font-family:var(--serif);font-size:1.35rem;line-height:1}
+.nav__logo em{color:var(--glow)}
+.nav a.back{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(243,237,228,.4);border-radius:999px;padding:11px 22px;transition:background .35s,color .35s}
+.nav a.back:hover{background:var(--ivory);color:var(--ink)}
+main{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:center;padding:clamp(30px,6vw,80px) var(--pad) clamp(60px,8vw,120px);position:relative;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;opacity:.55}
+.orb--1{width:55vmax;height:55vmax;right:-20vmax;top:-20vmax;background:radial-gradient(circle,#B77A47,transparent 65%)}
+.orb--2{width:40vmax;height:40vmax;left:-15vmax;bottom:-20vmax;background:radial-gradient(circle,#4A2A22,transparent 65%)}
+main>*{position:relative}
+.h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.8rem,7vw,6.5rem);line-height:.95;letter-spacing:-.02em;margin-top:22px}
+.h1 em{color:var(--glow)}
+.lead{margin-top:26px;max-width:46ch;color:var(--sand);font-weight:300;font-size:1.02rem}
+.lead b{color:var(--ivory);font-weight:500}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.btn{display:inline-flex;align-items:center;gap:14px;border-radius:999px;padding:18px 30px;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;position:relative;overflow:hidden;isolation:isolate;transition:color .5s var(--ease)}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;transform:translateY(101%);transition:transform .6s var(--ease)}
+.btn:hover::before{transform:translateY(0)}
+.btn--light{background:var(--ivory);color:var(--ink)}.btn--light::before{background:var(--glow)}
+.btn--ghost{border:1px solid currentColor}.btn--ghost::before{background:var(--ivory)}.btn--ghost:hover{color:var(--ink)}
+.btn svg{width:14px;height:14px}
+.code{margin-top:34px;padding-top:26px;border-top:1px solid rgba(243,237,228,.16)}
+.code b{display:block;font-size:clamp(1.3rem,2.6vw,1.9rem);letter-spacing:.22em;font-weight:600;margin-top:8px}
+.code span{font-size:.84rem;color:var(--sand)}
+.gcard-wrap{perspective:1400px;max-width:620px;justify-self:end;width:100%}
+.gcard{position:relative;aspect-ratio:1.5;border-radius:14px;overflow:hidden;background:#17120f;padding:clamp(18px,3vw,32px);display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 1px rgba(235,192,150,.18);transform:rotateY(-6deg) rotateX(4deg);transition:transform .8s var(--ease-out)}
+.gcard:hover{transform:none}
+.gcard::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 55% at 92% 2%,rgba(240,201,160,.5),transparent 70%),radial-gradient(45% 45% at 4% 100%,rgba(140,78,60,.65),transparent 70%),radial-gradient(35% 35% at 58% 82%,rgba(95,60,85,.5),transparent 70%),#100d0b}
+.gcard::after{content:"";position:absolute;inset:11px;border:1px solid rgba(185,143,94,.55);border-radius:8px;pointer-events:none}
+.gcard>*{position:relative;z-index:1}
+.gcard__top{display:flex;justify-content:space-between;align-items:flex-start}
+.gcard__top .eyebrow{color:var(--bronze);font-size:.62rem}
+.gcard__brand{font-family:var(--serif);font-size:clamp(.95rem,1.6vw,1.25rem);line-height:1.05;text-align:right}
+.gcard__brand em{display:block;color:var(--glow)}
+.gcard__amount{font-family:var(--serif);font-size:clamp(3.2rem,8vw,6rem);line-height:.9;letter-spacing:-.02em}
+.gcard__to{font-family:var(--serif);font-style:italic;color:var(--glow);font-size:clamp(1.2rem,2.4vw,1.8rem);margin-top:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gcard__from{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sand);margin-top:6px;min-height:1em}
+.gcard__msg{font-family:var(--serif);font-style:italic;color:var(--ivory-2);font-size:clamp(.82rem,1.3vw,1rem);line-height:1.35;margin-top:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.gcard__bot{display:flex;justify-content:space-between;align-items:flex-end;gap:14px}
+.gcard__code{font-size:clamp(.7rem,1.3vw,.95rem);letter-spacing:.2em;font-weight:600}
+.gcard__code small{display:block;font-size:.55rem;letter-spacing:.22em;color:var(--bronze);margin-bottom:4px}
+.gcard__bot span:last-child{font-size:.62rem;color:var(--sand);text-align:right;line-height:1.5}
+.state{color:var(--sand);font-weight:300}
+.state--err{color:#E8A090}
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity 1s var(--ease-out),transform 1s var(--ease-out)}
+.js .reveal.in{opacity:1;transform:none}
+footer{padding:20px var(--pad);font-size:.72rem;color:var(--muted);border-top:1px solid rgba(243,237,228,.12)}
+@media (max-width:600px){.gcard{aspect-ratio:auto;min-height:250px;gap:16px}.nav a.back{padding:10px 16px;font-size:.7rem}}
+@media (max-width:900px){main{grid-template-columns:1fr;align-items:start}.gcard-wrap{justify-self:stretch;order:-1}.gcard{transform:none}}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<header class="nav">
+  <a href="./" class="nav__logo">Beauté &amp; Technologie <em>Stahl</em></a>
+  <a href="./" class="back">Retour au site</a>
+</header>
+<main>
+  <div class="orb orb--1" aria-hidden="true"></div><div class="orb orb--2" aria-hidden="true"></div>
+  <div class="reveal" id="text">
+    <p class="eyebrow" style="color:var(--sand)">Carte cadeau</p>
+    <h1 class="h1" id="title">Un instant…</h1>
+    <p class="lead state" id="lead">Nous confirmons votre paiement.</p>
+    <div id="done" hidden>
+      <div class="code"><span class="eyebrow">Code de la carte</span><b id="code"></b><span id="expires"></span></div>
+      <div class="actions">
+        <a class="btn btn--light" id="dl" href="#" download>Télécharger la carte (PDF)
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M7 1v9M3 6l4 4 4-4M1 13h12"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="./">Retour au site</a>
+      </div>
+    </div>
+  </div>
+  <div class="gcard-wrap reveal" id="cardWrap">
+    <div class="gcard" aria-hidden="true">
+      <div class="gcard__top"><span class="eyebrow">Carte cadeau</span><span class="gcard__brand">Beauté &amp; Technologie <em>Stahl</em></span></div>
+      <div>
+        <div class="gcard__amount" id="pvAmount">— €</div>
+        <div class="gcard__to" id="pvTo"></div>
+        <div class="gcard__from" id="pvFrom"></div>
+        <p class="gcard__msg" id="pvMsg"></p>
+      </div>
+      <div class="gcard__bot"><span class="gcard__code"><small>Code</small><span id="pvCode">STAHL-·····-·····</span></span><span>2 rue Jules Méline, Bezannes<br>03 51 42 28 21</span></div>
+    </div>
+  </div>
+</main>
+<footer>Beauté &amp; Technologie Stahl · 2 rue Jules Méline, 51430 Bezannes · 03 51 42 28 21 · Carte valable sur l'ensemble des prestations, non remboursable.</footer>
+<script>
+(function(){
+  var q = new URLSearchParams(location.search), s = q.get('s'), demo = q.get('demo');
+  var $ = function(id){ return document.getElementById(id); };
+  setTimeout(function(){ $('text').classList.add('in'); $('cardWrap').classList.add('in'); }, 80);
+
+  function esc(v){ return String(v == null ? '' : v); }
+  function show(c){
+    $('pvAmount').textContent = c.amount + ' €';
+    $('pvTo').textContent = c.to ? 'Pour ' + c.to : 'Un moment rien que pour vous';
+    $('pvFrom').textContent = c.from ? 'De la part de ' + c.from : '';
+    $('pvMsg').textContent = c.message ? '« ' + c.message + ' »' : '';
+    $('pvCode').textContent = c.code;
+    $('title').innerHTML = 'Merci,<br>c\'est <em>offert.</em>';
+    var who = c.toEmail ? ('<b>' + esc(c.to || 'votre destinataire') + '</b> la reçoit aussi par e-mail.') : '';
+    $('lead').className = 'lead';
+    $('lead').innerHTML = 'Votre carte cadeau de <b>' + c.amount + ' €</b> est envoyée à <b>' + esc(c.buyerEmail) + '</b>. ' + who + ' Vous pouvez aussi la télécharger ci-dessous.';
+    $('code').textContent = c.code;
+    $('expires').textContent = 'Valable jusqu\'au ' + c.expires + ', sur présentation du code.';
+    $('done').hidden = false;
+  }
+  function fail(msg){
+    $('title').innerHTML = 'Un <em>souci.</em>';
+    $('lead').className = 'lead state state--err';
+    $('lead').textContent = msg;
+  }
+  if(demo){
+    var d = new Date(); d.setMonth(d.getMonth() + 12);
+    show({ amount: 150, to: 'Claire', from: 'Léo', message: 'Joyeux anniversaire ! Prends soin de toi.', code: 'STAHL-4ZHKY-W0YN0', buyerEmail: 'vous@exemple.fr', toEmail: 'claire@exemple.fr', expires: d.toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' }) });
+    $('dl').href = '#'; $('dl').removeAttribute('download');
+    return;
+  }
+  if(!s){ fail('Aucune commande à afficher. Revenez au site pour offrir une carte cadeau.'); return; }
+  $('dl').href = '/api/card?s=' + encodeURIComponent(s);
+  fetch('/api/card?s=' + encodeURIComponent(s) + '&json=1').then(function(r){ return r.json().then(function(j){ return { ok: r.ok, j: j }; }); })
+    .then(function(x){ if(x.ok) show(x.j); else fail((x.j && x.j.error) || 'Paiement non confirmé.'); })
+    .catch(function(){ fail('Impossible de récupérer la carte pour le moment. Vous la recevrez par e-mail dans quelques minutes ; sinon appelez le 03 51 42 28 21.'); });
+})();
+</script>
+</body>
+</html>

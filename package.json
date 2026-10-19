@@ -1,0 +1,15 @@
+{
+  "name": "institut-stahl",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Site vitrine Beauté & Technologie Stahl — carte cadeau Stripe Checkout + fonctions Vercel",
+  "dependencies": {
+    "@pdf-lib/fontkit": "^1.1.1",
+    "pdf-lib": "^1.17.1",
+    "resend": "^4.0.1",
+    "stripe": "^17.3.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
